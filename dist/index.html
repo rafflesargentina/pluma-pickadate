@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Componente Pickadate para Pluma</title>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Yellowtail" rel="stylesheet">
+<link media="all" type="text/css" rel="stylesheet" href="http://pluma.rafflesargentina.com/css/pluma.min.css" />
+<link media="all" type="text/css" rel="stylesheet" href="http://pluma.rafflesargentina.com/css/custom.css" />
+<link media="all" type="text/css" rel="stylesheet" href="/css/pluma-pickadate-classic.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="Loader"></div>
+  <header class="Navegacion Navegacion-Fija">
+    <div class="Caja">
+      <div class="Fila">
+        <a href="/" class="Logo">Pluma</a>
+        <nav class="Menu-Navegacion El--visible-desde-tablets">
+          <ul class="Lista-Menu-Navegacion">
+            <li class="Item-Menu-Navegacion"><a href="/">Ejemplos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="Jumbotron El--visible-desde-tablets">
+      <div class="Caja">
+        <h1>Pickadate</h1>
+        <h3>Ejemplos</h3>
+      </div>
+    </div>
+    <div class="Caja">
+      <div class="Fila">
+        <div class="Col-9">
+          <section>
+            <h1 class="Subrayado-Claro">El selector de fecha</h1>
+            <p>La configuración básica requiere un elemento <code>input</code> invocando el picker:</p>
+            <div class="Panel Panel-Default" id="panel">
+              <div class="Cuerpo-Panel">
+                <input id="picker1" type="text" placeholder="Dame click...">
+              </div>
+            </div>
+            <pre>
+<code class="language-html">&lt;input id="picker1" type="text" placholder="Dame click..."&gt;</code>
+<code class="language-html">&lt;script&gt;</code>
+<code class="language-javascript">$("#picker1").pickadate({</code>
+<code class="language-javascript">    selectYears: true,</code>
+<code class="language-javascript">    selectMonths: true,</code>
+<code class="language-javascript">});</code>
+<code class="language-html">&lt;/script&gt;</code>
+            </pre>
+          </section>
+        </div>      
+        <div class="Col-3">
+  
+        </div>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="http://pluma.rafflesargentina.com/js/pluma.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/compressed/picker.date.js"></script>
+<script>
+$("#picker1").pickadate({
+    selectYears: true,
+    selectMonths: true,
+});
+</script>
+</body>

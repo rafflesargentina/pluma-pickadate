@@ -1,0 +1,100 @@
+/*!
+ * Default mobile-first, responsive styling for pickadate.js
+ * Demo: http://amsul.github.io/pickadate.js
+ */
+
+/**
+ * Note: the root picker element should *NOT* be styled more than what’s here.
+ */
+.picker 
+
+/**
+ * Make the holder and frame fullscreen.
+ */
+.picker__holder,
+.picker__frame 
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  @include transform(translateY(100%))
+
+/**
+ * The holder should overlay the entire screen.
+ */
+.picker__holder 
+  position: fixed
+  // Avoid flickering of the page on webkit browsers
+  -webkit-backface-visibility: hidden
+  // Fade out the background, then immediately shift the holder out of view.
+  @include transition(background $duracion ease-out, transform 0s $duracion)
+
+/**
+ * The frame that bounds the box contents of the picker.
+ */
+.picker__frame 
+  top: auto
+  bottom: -100%
+  margin: 0 auto
+  opacity: 0
+  overflow: visible
+  position: absolute
+  min-width: 20rem
+  max-width: $primer--bp
+  max-height: 80%
+  margin-bottom: 5%
+  @include transition(all $duracion ease-out)
+  @include media(min-width $segundo-bp)
+    margin-bottom: 10%
+
+/**
+ * The wrapper sets the stage to vertically align the box contents.
+ */
+.picker__wrap 
+  height: 100%
+
+/**
+ * The box contains all the picker contents.
+ */
+.picker__box 
+  border: $borde-claro
+  font-size: $tamano-fuente-grande
+  background: $color-fondo
+  box-shadow: 0 1px 0 10000px $color-sombra-oscura
+  @include media(min-width $segundo-bp)
+    border-radius: $radio-borde-grande
+
+/**
+ * When the picker opens...
+ */
+.picker--opened 
+  // Immediately move the holder to the top edge then fade in an overlay
+  .picker__holder 
+    background: transparent
+    @include transform(translateY(0))
+    @include transition(background $duracion ease-out)
+
+  // Smoothly move the content to the top edge while fading it in
+  .picker__frame 
+    top: auto
+    bottom: 0
+    opacity: 1
+    @include transform(translateY(0))
+
+/**
+ * The header containing the month and year stuff.
+ */
+.picker__footer
+  @include media(min-width $segundo-bp)
+    margin-bottom: $margen-muy-chico
+
+.picker__header
+  margin-bottom: $margen-muy-chico
+  @include media(min-width $segundo-bp)
+    padding: $margen-muy-chico 0
+
+.picker__nav--next,
+.picker__nav--prev
+  top: $espaciado-chico
+  @include media(min-width $segundo-bp)
+    top: $alto-boton / 2

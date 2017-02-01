@@ -1,0 +1,225 @@
+/* ==========================================================================
+   $BASE-DATE-PICKER
+   ========================================================================== */
+
+@import "mixins/date"
+@import "mixins/botones"
+
+.picker__box,
+.picker__wrap,
+.picker__frame,
+.picker__header,
+.picker__footer,
+.picker__holder
+  float: left
+  width: 100%
+
+/**
+ * The picker box.
+ */
+.picker__box 
+  padding: $margen-chico
+
+/**
+ * The month and year labels.
+ */
+.picker__year, 
+.picker__month
+  color: $gris-mas-oscuro
+  height: 2rem
+  font-size: $tamano-fuente-h3
+  line-height: 2rem
+  text-transform: $trans-encabezados
+  @include span-columns(6)
+
+.picker__month 
+  text-align: right
+
+.picker__year 
+  text-align: left
+  @include omega
+
+/**
+ * The month and year selectors.
+ */
+.picker__select--year,
+.picker__select--month
+  color: $gris-mas-oscuro
+  border: none
+  height: 2rem
+  padding: 0
+  font-size: $tamano-fuente-h3
+  line-height: 2rem
+  text-transform: $trans-encabezados
+
+.picker__select--year
+  @include shift(2)
+  @include span-columns(4)
+  @include media(min-width $primer--bp)
+    @include omega
+    @include shift(4)
+    @include span-columns(2)
+
+.picker__select--month 
+  @include omega
+  @include span-columns(4)
+
+/**
+ * The month navigation buttons.
+ */
+.picker__nav--prev,
+.picker__nav--next 
+  width: $alto-boton / 4
+  cursor: pointer
+  height: $alto-boton / 4
+  content: ''
+  display: inline-block
+  position: absolute
+  box-sizing: content-box
+  border-width: 0.2rem 0.2rem 0 0
+  border-style: solid
+  vertical-align: top
+
+.picker__nav--prev 
+  left: $margen-muy-chico
+  @include transform(rotate(225deg))
+
+.picker__nav--next 
+  right: $margen-muy-chico
+  @include transform(rotate(45deg))
+
+// Disabled month nav.
+.picker__nav--disabled,
+.picker__nav--disabled:hover,
+.picker__nav--disabled:before,
+.picker__nav--disabled:before:hover 
+  cursor: default
+  background: $color-variante-fondo
+
+/**
+ * The calendar table of dates
+ */
+.picker__table 
+  font-size: inherit
+  margin-bottom: $margen-muy-chico
+    
+.picker__table 
+  > thead,
+  > tbody,
+  > tfoot 
+    > tr 
+      > td,
+      > th 
+        font-size: $tamano-fuente-grande
+        text-align: center
+      > td 
+        padding: 0
+      > th 
+        padding: $espaciado
+    
+  > tbody > tr 
+    &:hover 
+      background: $color-alerta-fondo-info
+    td > .picker__day 
+      &:focus,
+      &:hover,
+      &:active 
+        background: $color-alerta-borde-info
+    td .picker__day.picker__day--outfocus 
+      &:focus,
+      &:hover,
+      &:active 
+        background: $color-fondo
+    td:last-child 
+      //color: $color-alerta-texto-error
+      background: $color-alerta-fondo-error
+      .picker__day 
+          //color: $color-alerta-texto-error
+      
+      .picker__day.picker__day--infocus 
+        &:focus,
+        &:hover,
+        &:active 
+          background: $color-alerta-borde-error
+
+          .picker_day.picker__day--outfocus 
+            color: $color-borde
+            background: $color-fondo
+
+/**
+ * The weekday labels
+ */
+.picker__weekday 
+
+
+/**
+ * The days on the calendar
+        bord
+ */
+.picker__day 
+  border: $borde-transparente
+  padding: $espaciado-chico
+
+
+// Today.
+.picker__day--today 
+
+.picker__day--today:before 
+  content: ''
+  position: absolute
+  top: 2px
+  right: 2px
+  width: 0
+  height: 0
+  border-top: $espaciado solid
+  border-left: $espaciado solid transparent
+
+// Out of focus days.
+.picker__day--outfocus 
+  color: $color-borde
+  background: $color-fondo
+
+// Highlighted and hovered/focused dates.
+.picker__day--highlighted 
+  @include picker-item-highlighted
+
+// Selected and hovered/focused dates.
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected 
+  @include picker-item-selected
+
+// Disabled dates.
+.picker__day--disabled,
+.picker__day--disabled:hover,
+.picker--focused .picker__day--disabled 
+  @include picker-item-disabled
+
+// Disabled and highlighted dates.
+.picker__day--highlighted.picker__day--disabled,
+.picker__day--highlighted.picker__day--disabled:hover 
+
+/**
+ * The footer containing the "today", "clear", and "close" buttons.
+ */
+.picker__footer 
+
+.picker__button--today
+  @include span-columns(4)
+  @include variante-boton($color-fondo,$color-info,$color-info)
+  height: 2rem
+  line-height: 2rem
+
+.picker__button--clear
+  @include span-columns(4)
+  @include variante-boton($color-fondo,$color-info,$color-info)
+  height: 2rem
+  line-height: 2rem
+
+.picker__button--close
+  @include omega
+  @include span-columns(4)
+  @include variante-boton($color-fondo,$color-info,$color-info)
+  height: 2rem
+  line-height: 2rem
+

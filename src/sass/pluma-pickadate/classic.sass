@@ -1,0 +1,76 @@
+/*!
+ * Classic picker styling for pickadate.js
+ * Demo: http://amsul.github.io/pickadate.js
+ */
+
+/**
+ * Note: the root picker element should *NOT* be styled more than what’s here.
+ */
+.picker 
+  // Make it full-width so that it doesn’t collapse.
+  width: 100%
+  z-index: 2
+
+/**
+ * The holder is the base of the picker.
+ */
+.picker__holder 
+    // The base stylings.
+    // Add a light border - except top & bottom to let it collapse.
+    border: $borde
+    opacity: 0
+    position: absolute
+    // Specify the min & max widths.
+    min-width: 20rem
+    max-width: $primer--bp
+    background: $color-fondo
+    // Hide everything to begin with.
+    max-height: 0
+    // Let�~@~Ys not go 100% + 2px.
+    box-sizing: border-box
+    // Tilt the picker.
+    @include transform(translateY(-1rem) perspective(40rem) rotateX(10deg))
+
+    // Everything should be smoothly animated – the height & border should wait till the rest is done.
+    @include transition(transform $duracion ease-out,opacity $duracion ease-out,max-height 0s, border-width 0s)
+
+/**
+ * The frame and wrap work together to ensure that
+ * clicks within the picker don’t reach the holder.
+ */
+.picker__frame 
+  padding: 1px
+
+.picker__wrap 
+  margin: -1px
+
+/**
+ * When the picker opens...
+ */
+.picker--opened 
+  .picker__holder 
+    top: $alto-control
+    opacity: 1
+    // Reveal the content.
+    max-height: $primer--bp
+
+    // Straighten the picker.
+    @include transform(translateY(0) perspective(40rem) rotateX(0))
+
+    // Everything should be smoothly animated – except the height & border.
+    @include transition(transform $duracion ease-out, opacity $duracion ease-out,max-height 0s, border-width 0s)
+    // Add a light shadow.
+    box-shadow: 0 1px 0 10000px $color-sombra-oscura
+
+/**
+ * The header containing the month and year stuff.
+ */
+.picker__header
+  margin-bottom: $margen-muy-chico
+
+.picker__nav--next,
+.picker__nav--prev
+  top: $espaciado-chico
+
+.picker__input--active
+  z-index: 3 !important

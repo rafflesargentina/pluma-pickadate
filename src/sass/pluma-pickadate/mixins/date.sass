@@ -1,0 +1,25 @@
+// ==========================================================================
+// $MIXINS
+// ==========================================================================
+
+//
+// Common picker item states
+//
+
+// Highlighted.
+@mixin picker-item-highlighted () 
+  z-index: 2
+  border-color: inherit
+
+// Hovered.
+@mixin picker-item-hovered () 
+  cursor: pointer
+  background: $color-alerta-borde-info
+
+// Selected.
+@mixin picker-item-selected () 
+
+// Disabled.
+@mixin picker-item-disabled () 
+  color: $color-fuente-deshabilitado
+  cursor: default
